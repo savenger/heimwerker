@@ -14,3 +14,4 @@ func _physics_process(delta):
 	# look_at(target)
 	if position.distance_to(target) > 10:
 		velocity = move_and_slide(velocity)
+	print(position)
