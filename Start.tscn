@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Click.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Globals.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 58.856, 95 )
@@ -11,13 +12,14 @@ extents = Vector2( 109, 60 )
 
 [node name="Start" type="Node2D"]
 position = Vector2( -1, 1 )
+script = ExtResource( 3 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = -167.0
-margin_top = -281.0
-margin_right = 207.0
-margin_bottom = -241.0
-text = "erste Szene Testtext"
+margin_left = 662.351
+margin_top = 36.3005
+margin_right = 1036.35
+margin_bottom = 76.3005
+text = "TEst TEST TEST"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -45,5 +47,21 @@ scale = Vector2( 3.29688, 1.875 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mach"]
+position = Vector2( 110, 0 )
+shape = SubResource( 2 )
+
+[node name="Exit" type="Area2D" parent="."]
+position = Vector2( 577, 247 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite2" type="Sprite" parent="Exit"]
+position = Vector2( 110, 0 )
+scale = Vector2( 3.29688, 1.875 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
 position = Vector2( 110, 0 )
 shape = SubResource( 2 )

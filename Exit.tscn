@@ -1,0 +1,13 @@
+[gd_scene format=2]
+
+[node name="Exit" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 216.0
+margin_top = 32.0
+margin_right = 584.0
+margin_bottom = 72.0
+text = "Abspann"
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -2,8 +2,6 @@ extends Area2D
 
 # Declare member variables here. Examples:
 onready var called_by = self.name
-# onready var called_by = get_parent().name
-# onready var called_by2 = get_owner().get_child(1).name
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,8 +16,8 @@ func _input_event(viewport, event, shape_idx):
 
 func on_click():
 	# print(called_by1)
-	print("res://scenes/"+called_by+".tscn")
-	# get_node("/root/globals").setScene("res://scenes/"+called_by+".tscn")
+	print("res://scenes/"+self.name+".tscn")
+	get_tree().change_scene("res://"+self.name+".tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
