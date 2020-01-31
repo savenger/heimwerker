@@ -1,0 +1,11 @@
+[gd_scene format=2]
+
+[node name="Start" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_right = 374.0
+margin_bottom = 40.0
+text = "erste Szene Testtext"
+__meta__ = {
+"_edit_use_anchors_": false
+}
