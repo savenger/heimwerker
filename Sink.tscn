@@ -1,17 +1,48 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
+[ext_resource path="res://assets/E5D82AD5-FBC9-461B-8D52-4F11DAC6EC90.png" type="Texture" id=1]
 [ext_resource path="res://SinkArea.gd" type="Script" id=2]
 [ext_resource path="res://Sink.gd" type="Script" id=3]
 [ext_resource path="res://assets/background_rohre_klickarea.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=3]
+resource_name = "Success_Animation"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2029.79, 617.38 ), Vector2( 1200, 617.38 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 20.0, 0.0 ]
+}
 
 [sub_resource type="RectangleShape2D" id=1]
 
 [sub_resource type="StreamTexture" id=2]
 flags = 4
-load_path = "res://.import/56ACCEEA-A492-4C51-AC50-32C196B81BF5.png-82294f663a58bdaa87e1890844d28528.stex"
+load_path = "res://.import/81DD17BA-E5F1-454D-B172-6849A2D34492.png-ab4f5e5815fa4ce4e2fb2fc575ee54ef.stex"
 
 [node name="Sink" type="Node2D"]
 script = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Success_Animation = SubResource( 3 )
 
 [node name="SinkArea" type="Area2D" parent="."]
 script = ExtResource( 2 )
@@ -38,3 +69,9 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 2029.79, 617.38 )
+rotation = 0.349066
+scale = Vector2( 1, 1 )
+texture = ExtResource( 1 )

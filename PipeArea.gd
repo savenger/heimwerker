@@ -1,42 +1,41 @@
 extends Area2D
 
 export (int) var speed = 900
+export (int) var cur_rot = rotation_degrees
 
 var velocity = Vector2()
-var globals = null
+var sink_defs = null
+var finished = false
 
 func _ready():
-	globals = get_parent().globals
-	print("----")
-	print(globals.target)
-	print(global_position)
-	# target = global_position
-	print("####")
-	print(globals.target)
-	print(global_position)
-	print("----")
+	sink_defs = get_parent().sink_defs
 
 func _input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton \
 	and event.is_pressed():
+		if finished:
+			return
 		print("PipeArea:_input_event")
 		if event.button_index == BUTTON_RIGHT:
 			rotate(PI/2.0)
+			sink_defs.selected = self
+			sink_defs.target = null
 		if event.button_index == BUTTON_LEFT:
-			get_parent().globals.selected = self
-			get_parent().globals.target = null
+			sink_defs.selected = self
+			sink_defs.target = null
 
 func grid_to_pixel(column, row):
-	var x = globals.x_start + globals.offset * column + globals.offset / 2
-	var y = globals.y_start + globals.offset * row + globals.offset / 2
+	var x = sink_defs.x_start + sink_defs.offset * column + sink_defs.offset / 2
+	var y = sink_defs.y_start + sink_defs.offset * row + sink_defs.offset / 2
 	return Vector2(x, y)
 
 func _physics_process(delta):
-	if globals.target != null and globals.selected == self:
-		var target = grid_to_pixel(globals.target.x, globals.target.y)
+	if not sink_defs:
+		return
+	if sink_defs.target != null and sink_defs.selected == self:
+		var target = grid_to_pixel(sink_defs.target.x, sink_defs.target.y)
 		velocity = global_position.direction_to(target) * speed
 		if global_position.distance_to(target) > 10:
 			global_position += velocity * delta
 		else:
 			global_position = target
-			print(global_position)

@@ -1,7 +1,7 @@
 extends Node2D
 
 # Declare member variables here. Examples:
-export (bool) var globals = null
+export (bool) var sink_defs = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
