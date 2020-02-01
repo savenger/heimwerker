@@ -1,16 +1,18 @@
 extends Area2D
 
-export (int) var speed = 950
+export (int) var speed = 900
 
 var velocity = Vector2()
+var globals = null
 
 func _ready():
+	globals = get_parent().globals
 	print("----")
-	print(get_parent().globals.target)
+	print(globals.target)
 	print(global_position)
 	# target = global_position
 	print("####")
-	print(get_parent().globals.target)
+	print(globals.target)
 	print(global_position)
 	print("----")
 
@@ -23,9 +25,18 @@ func _input_event(_viewport, event, _shape_idx):
 		if event.button_index == BUTTON_LEFT:
 			get_parent().globals.selected = self
 
+func grid_to_pixel(column, row):
+	var x = globals.x_start + globals.offset * column + globals.offset / 2
+	var y = globals.y_start + globals.offset * row + globals.offset / 2
+	return Vector2(x, y)
 
 func _physics_process(delta):
-	if get_parent().globals.target and get_parent().globals.selected == self:
-		velocity = global_position.direction_to(get_parent().globals.target) * speed
-		if global_position.distance_to(get_parent().globals.target) > 10:
+	if globals.target and globals.selected == self:
+		var target = grid_to_pixel(globals.target.x, globals.target.y)
+		velocity = global_position.direction_to(target) * speed
+		if global_position.distance_to(target) > 10:
+			print(globals.target)
+			print(target)
 			global_position += velocity * delta
+		else:
+			global_position = target

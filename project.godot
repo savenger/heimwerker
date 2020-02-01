@@ -20,6 +20,12 @@ run/main_scene="res://Start.tscn"
 boot_splash/image="res://GGJ00-RoundLogo-900x900.png"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/size/resizable=false
+
 [input]
 
 click={

@@ -3,6 +3,11 @@ extends Node2D
 class Globals:
 	var selected = null
 	var target = null
+	var width = 8
+	var height = 9
+	var x_start = 500
+	var y_start = 200
+	var offset = 100
 
 var active_inv_item = null
 var globals = Globals.new()
@@ -21,16 +26,16 @@ var globals = Globals.new()
 func _ready():
 	# set area2d size to capture input
 	var screensize = get_viewport().get_visible_rect().size
-	$Area2D/CollisionShape2D.position = Vector2(screensize.x / 2, screensize.y / 2)
-	$Area2D/CollisionShape2D.scale = Vector2(screensize.x, screensize.y)
+	$SinkArea/CollisionShape2D.position = Vector2(screensize.x / 2, screensize.y / 2)
+	$SinkArea/CollisionShape2D.scale = Vector2(screensize.x, screensize.y)
 	
 	# load some pipes
 	var Pipe = load("res://Pipe.tscn")
-	var inventory = [1,2,3,4,5]
+	var inventory = [1,2,3,4,5,6,7,8,9]
 	for i in inventory:
 		var node = Pipe.instance()
-		node.position.x = 150 * i
-		node.position.y = 400
+		node.position.x = 110 * i
+		node.position.y = 925
 		node.globals = globals
 		add_child(node)
 

@@ -4,10 +4,11 @@
 [ext_resource path="res://Pipe.gd" type="Script" id=2]
 [ext_resource path="res://PipeArea.gd" type="Script" id=3]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 34, 33 )
 
 [node name="Pipe" type="Node2D"]
+scale = Vector2( 1.562, 1.562 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -17,8 +18,7 @@ __meta__ = {
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PipeArea"]
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="PipeArea"]
-position = Vector2( 0, -1 )
 texture = ExtResource( 1 )
