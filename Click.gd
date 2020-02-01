@@ -1,7 +1,7 @@
 extends Area2D
 
 # Declare member variables here. Examples:
-onready var called_by = self.name
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,7 +15,6 @@ func _input_event(viewport, event, shape_idx):
 		self.on_click()
 
 func on_click():
-	# print(called_by1)
 	print("res://scenes/"+self.name+".tscn")
 	get_tree().change_scene("res://"+self.name+".tscn")
 
