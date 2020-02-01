@@ -31,12 +31,10 @@ func grid_to_pixel(column, row):
 	return Vector2(x, y)
 
 func _physics_process(delta):
-	if globals.target and globals.selected == self:
+	if globals.target != null and globals.selected == self:
 		var target = grid_to_pixel(globals.target.x, globals.target.y)
 		velocity = global_position.direction_to(target) * speed
 		if global_position.distance_to(target) > 10:
-			print(globals.target)
-			print(target)
 			global_position += velocity * delta
 		else:
 			global_position = target

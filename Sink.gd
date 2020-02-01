@@ -3,8 +3,8 @@ extends Node2D
 class Globals:
 	var selected = null
 	var target = null
-	var width = 8
-	var height = 9
+	var width = 9
+	var height = 8
 	var x_start = 500
 	var y_start = 200
 	var offset = 100
@@ -31,11 +31,11 @@ func _ready():
 	
 	# load some pipes
 	var Pipe = load("res://Pipe.tscn")
-	var inventory = [1,2,3,4,5,6,7,8,9]
+	var inventory = [1,2,3,4,5,6,7]
 	for i in inventory:
 		var node = Pipe.instance()
-		node.position.x = 110 * i
-		node.position.y = 925
+		node.position.x = globals.x_start - globals.offset * 2
+		node.position.y = globals.y_start + globals.offset * i
 		node.globals = globals
 		add_child(node)
 
