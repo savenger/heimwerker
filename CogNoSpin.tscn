@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://NoSpin.gd" type="Script" id=1]
+[ext_resource path="res://assets/cog.svg" type="Texture" id=2]
+
+[node name="NonSpinningCog" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+gravity_scale = 0.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D"]
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+polygon = PoolVector2Array( -15, -111.6, -7.2, -94, 7.39999, -92.1, 20.3, -113, 39.0538, -106.917, 40.8, -85.4, 53, -76, 54.3, -76, 74.4059, -87.0558, 88.3084, -72.3588, 77, -52.1, 84.3363, -38.1983, 110, -38.8, 113.73, -19.132, 93.075, -7.21558, 93.075, 8.27581, 113, 20.4, 106.2, 40, 84, 41.8, 76.9, 54.2, 86.7196, 76.994, 70.0366, 88.9104, 52.1, 77, 38.2594, 83.7467, 38.6566, 108.374, 18.7958, 112.743, 8.46823, 94.0742, -7.42036, 93.2798, -19.3, 113, -39.1976, 107.977, -40.8, 84.4, -53.8, 76, -76.5358, 85.7327, -89, 71.1, -77, 52.2, -82.8, 40.9, -111, 35.5, -112.285, 17.4118, -93, 5.39999, -93, -7.3, -113.08, -19.5292, -108.5, -41, -83.8, -41, -76.9, -54, -87.2606, -75.5366, -71.2, -89, -51.9, -78, -39, -85.7, -39, -110 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+node_a = NodePath("../RigidBody2D")
+node_b = NodePath("../StaticBody2D")

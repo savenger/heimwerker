@@ -20,6 +20,10 @@ run/main_scene="res://Start.tscn"
 boot_splash/image="res://GGJ00-RoundLogo-900x900.png"
 config/icon="res://icon.png"
 
+[autoload]
+
+Globals="*res://Globals.gd"
+
 [display]
 
 window/size/width=1920
