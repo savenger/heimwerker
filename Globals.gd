@@ -5,8 +5,6 @@ var currentScene = null
 
 #just some data for our game (HPs, Alignment, Direction, etc...)
 var PlayerName = "Mike"
-#var LevelNo = 0
-var Win = 0
 
 func _ready():
    #On load set the current scene to the last scene available
