@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Spin.gd" type="Script" id=1]
+[ext_resource path="res://CogSpin.gd" type="Script" id=1]
 [ext_resource path="res://assets/cog.svg" type="Texture" id=2]
 
 [node name="SpinningCog" type="Node2D"]
@@ -8,9 +8,6 @@
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 gravity_scale = 0.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="RigidBody2D"]
 texture = ExtResource( 2 )

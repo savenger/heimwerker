@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="Heimwerker"
 run/main_scene="res://Start.tscn"
-boot_splash/image="res://GGJ00-RoundLogo-900x900.png"
+boot_splash/image="res://assets/GGJ00-RoundLogo-900x900.png"
 config/icon="res://icon.png"
 
 [autoload]

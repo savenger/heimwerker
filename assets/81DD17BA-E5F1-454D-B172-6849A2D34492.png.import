@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cog-bunt.svg-5c68253a4ce2e90eb96490f77d32866a.stex"
+path="res://.import/81DD17BA-E5F1-454D-B172-6849A2D34492.png-ab4f5e5815fa4ce4e2fb2fc575ee54ef.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cog-bunt.svg"
-dest_files=[ "res://.import/cog-bunt.svg-5c68253a4ce2e90eb96490f77d32866a.stex" ]
+source_file="res://assets/81DD17BA-E5F1-454D-B172-6849A2D34492.png"
+dest_files=[ "res://.import/81DD17BA-E5F1-454D-B172-6849A2D34492.png-ab4f5e5815fa4ce4e2fb2fc575ee54ef.stex" ]
 
 [params]
 

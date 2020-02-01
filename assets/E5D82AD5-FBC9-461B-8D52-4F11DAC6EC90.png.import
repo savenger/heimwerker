@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/GGJ00-RoundLogo-900x900.png-c719d931637e1e3899804033c645964e.stex"
+path="res://.import/E5D82AD5-FBC9-461B-8D52-4F11DAC6EC90.png-b86d878f9ec24f0afe1f5e1262a2c653.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GGJ00-RoundLogo-900x900.png"
-dest_files=[ "res://.import/GGJ00-RoundLogo-900x900.png-c719d931637e1e3899804033c645964e.stex" ]
+source_file="res://assets/E5D82AD5-FBC9-461B-8D52-4F11DAC6EC90.png"
+dest_files=[ "res://.import/E5D82AD5-FBC9-461B-8D52-4F11DAC6EC90.png-b86d878f9ec24f0afe1f5e1262a2c653.stex" ]
 
 [params]
 

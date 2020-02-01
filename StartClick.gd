@@ -7,7 +7,7 @@ extends Area2D
 func _ready():
 	pass
 
-func _input_event(viewport, event, shape_idx):
+func _input_event(_viewport, event, _shape_idx):
 	# print(viewport, shape_idx)
 	if event is InputEventMouseButton \
 	and event.button_index == BUTTON_LEFT \
@@ -15,7 +15,7 @@ func _input_event(viewport, event, shape_idx):
 		self.on_click()
 
 func on_click():
-	print("res://scenes/"+self.name+".tscn")
+	# print("res://scenes/"+self.name+".tscn")
 	get_tree().change_scene("res://"+self.name+".tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

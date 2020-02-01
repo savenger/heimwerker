@@ -8,10 +8,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-	# self.set_angular_velocity(2)
-	# self.set_linear_velocity(Vector2(0,0))
+	self.set_angular_velocity(2)
+#	self.set_linear_velocity(Vector2(0,0))
 
 func _integrate_forces(state):
-	var vel = state.get_linear_velocity ()
+	var _vel = state.get_linear_velocity ()
 	state.set_linear_velocity (Vector2 (0, 0))
