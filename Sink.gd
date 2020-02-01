@@ -3,8 +3,8 @@ extends Node2D
 class Globals:
 	var selected = null
 	var target = null
-	var width = 9
-	var height = 8
+	var width = 14
+	var height = 14
 	var x_start = 500
 	var y_start = 200
 	var offset = 100
@@ -30,14 +30,26 @@ func _ready():
 	$SinkArea/CollisionShape2D.scale = Vector2(screensize.x, screensize.y)
 	
 	# load some pipes
-	var Pipe = load("res://Pipe.tscn")
-	var inventory = [1,2,3,4,5,6,7]
-	for i in inventory:
-		var node = Pipe.instance()
-		node.position.x = globals.x_start - globals.offset * 2
-		node.position.y = globals.y_start + globals.offset * i
-		node.globals = globals
-		add_child(node)
+	var pipes = [
+		["Pipe_T", 2],
+		["Pipe_I", 1],
+		["Pipe_L", 1],
+		["Pipe_End", 2],
+		["Pipe_U1", 1],
+		["Pipe_U2", 1]
+	]
+	var j = 0
+	for pipe in pipes:
+		var name = pipe[0]
+		var count = pipe[1]
+		var p = load("res://" + name + ".tscn")
+		for i in count:
+			var node = p.instance()
+			node.position.x = globals.x_start - globals.offset * 2
+			node.position.y = globals.y_start + globals.offset * j
+			node.globals = globals
+			add_child(node)
+			j += 1
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
