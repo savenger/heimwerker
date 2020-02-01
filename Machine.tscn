@@ -1,24 +1,27 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://CogSpin.tscn" type="PackedScene" id=1]
 [ext_resource path="res://CogNoSpin.tscn" type="PackedScene" id=2]
+[ext_resource path="res://PointClick.gd" type="Script" id=5]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Area2D" type="Area2D" parent="."]
-
 [node name="Area2D2" type="Area2D" parent="."]
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
-
-[node name="KinematicBody2D2" type="KinematicBody2D" parent="."]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-
 [node name="SpinningCog" parent="." instance=ExtResource( 1 )]
-position = Vector2( 272, 280 )
+position = Vector2( 1587.79, 263.344 )
 
 [node name="NonSpinningCog" parent="." instance=ExtResource( 2 )]
-position = Vector2( 472.606, 366.33 )
+position = Vector2( 1417.06, 390.783 )
+
+[node name="Cog1" type="KinematicBody2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="NonSpinningCog" parent="Cog1" instance=ExtResource( 2 )]
+position = Vector2( 585.679, 675.894 )
+
+[node name="Cog2" type="KinematicBody2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="NonSpinningCog" parent="Cog2" instance=ExtResource( 2 )]
+position = Vector2( 1204.29, 415.274 )
