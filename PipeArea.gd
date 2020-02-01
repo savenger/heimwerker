@@ -39,3 +39,4 @@ func _physics_process(delta):
 			global_position += velocity * delta
 		else:
 			global_position = target
+			print(global_position)

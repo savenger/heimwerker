@@ -12,6 +12,13 @@ func _input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton \
 	and event.is_pressed():
 		print("Sink:_input_event")
+		if event.button_index == BUTTON_RIGHT:
+			for child in get_parent().get_children():
+				if child.name.substr(0,6) == "Pipe_E":
+					print(child.name)
+					print(child.position)
+					if "position" in child.get_property_list():
+						print(child.name, child.global_position)
 		if event.button_index == BUTTON_LEFT:
 			var pos = get_global_mouse_position()
 			print("pos")

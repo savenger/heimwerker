@@ -9,7 +9,6 @@ class Globals:
 	var y_start = 200
 	var offset = 100
 
-var active_inv_item = null
 var globals = Globals.new()
 
 # Declare member variables here. Examples:
@@ -31,22 +30,24 @@ func _ready():
 	
 	# load some pipes
 	var pipes = [
-		["Pipe_T", 2],
-		["Pipe_I", 1],
-		["Pipe_L", 1],
-		["Pipe_End", 2],
-		["Pipe_U1", 1],
-		["Pipe_U2", 1]
+		["Pipe_T", 2, [[1350, 850], [550, 350]]],
+		["Pipe_I", 1, [[850, 350]]],
+		["Pipe_L", 1, [[1050, 850]]],
+		["Pipe_End", 2, [[1350, 550], [1150, 350]]],
+		["Pipe_U1", 1, [[650, 650]]],
+		["Pipe_U2", 1, [[950, 450]]]
 	]
 	var j = 0
 	for pipe in pipes:
 		var name = pipe[0]
 		var count = pipe[1]
+		var pos = pipe[2]
 		var p = load("res://" + name + ".tscn")
 		for i in count:
 			var node = p.instance()
-			node.position.x = globals.x_start - globals.offset * 2
-			node.position.y = globals.y_start + globals.offset * j
+			node.name = name + str(i)
+			node.position.x = pos[i][0]
+			node.position.y = pos[i][1]
 			node.globals = globals
 			add_child(node)
 			j += 1
