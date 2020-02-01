@@ -1,7 +1,7 @@
 extends Node2D
 
-export (int) var width = 8
-export (int) var height = 9
+export (int) var width = 14
+export (int) var height = 14
 export (int) var x_start = 500
 export (int) var y_start = 200
 export (int) var offset = 100

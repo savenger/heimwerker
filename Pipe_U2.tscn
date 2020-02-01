@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Pipe.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/rohrlinesfarbespeed.png" type="Texture" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends \"res://PipeArea.gd\""
+
+[sub_resource type="GDScript" id=2]
+
+[sub_resource type="TileSet" id=3]
+0/name = "rohrlinesfarbespeed.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 20, 156, 1800, 800 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 100, 100 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shapes = [  ]
+0/z_index = 0
+script = SubResource( 2 )
+
+[node name="Pipe_U2" instance=ExtResource( 1 )]
+scale = Vector2( 1, 1 )
+
+[node name="Area2D" type="Area2D" parent="." index="1"]
+script = SubResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" index="0"]
+position = Vector2( 1.82837, -104.228 )
+scale = Vector2( 1.33475, 1.3623 )
+polygon = PoolVector2Array( 42.9854, -34.999, 106.963, -33.8143, 109.333, 80.5165, 109.925, 91.7718, 103.409, 105.397, 94.5231, 110.728, -84.3779, 111.913, -99.7799, 105.989, -107.481, 91.1794, -106.889, -109.64, -43.5032, -108.455, -43.5032, 59.1905, 42.9854, 58.0057 )
+
+[node name="TileMap" type="TileMap" parent="Area2D" index="1"]
+rotation = -3.14159
+scale = Vector2( 0.5, 0.5 )
+tile_set = SubResource( 3 )
+cell_size = Vector2( 100, 100 )
+format = 1
+tile_data = PoolIntArray( -3, 0, 65546, -2, 0, 65547, -1, 0, 65547, -65536, 0, 65547, -65535, 0, 65550, -65534, 0, 65551, 65533, 0, 131074, 65534, 0, 131083, 65535, 0, 131084, 0, 0, 131084, 1, 0, 131086, 2, 0, 327693, 131069, 0, 131074, 131070, 0, 327693, 65537, 0, 327694, 65538, 0, 327693, 196605, 0, 131074, 196606, 0, 327693, 131073, 0, 327694, 131074, 0, 327693, 196609, 0, 327694, 196610, 0, 327693, 262145, 0, 327694, 262146, 0, 327693 )

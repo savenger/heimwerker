@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Pipe.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/rohrlinesfarbespeed.png" type="Texture" id=2]
+[ext_resource path="res://Area2D.gd" type="Script" id=3]
+
+[sub_resource type="GDScript" id=1]
+
+[sub_resource type="TileSet" id=2]
+0/name = "rohrlinesfarbespeed.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 20, 156, 1800, 800 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 100, 100 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shapes = [  ]
+0/z_index = 0
+script = SubResource( 1 )
+
+[node name="Pipe_I" instance=ExtResource( 1 )]
+scale = Vector2( 1, 1 )
+
+[node name="Area2D" type="Area2D" parent="." index="0"]
+script = ExtResource( 3 )
+
+[node name="TileMap" type="TileMap" parent="Area2D" index="0"]
+scale = Vector2( 0.5, 0.5 )
+tile_set = SubResource( 2 )
+cell_size = Vector2( 100, 100 )
+format = 1
+tile_data = PoolIntArray( -131073, 0, 131076, -196608, 0, 131077, -65537, 0, 131076, -131072, 0, 131077, -1, 0, 131076, -65536, 0, 131077, 65535, 0, 131076, 0, 0, 131077, 131071, 0, 131076, 65536, 0, 131077, 196607, 0, 131076, 131072, 0, 131077 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" index="1"]
+position = Vector2( 2.79677, -152.148 )
+scale = Vector2( 1.27035, 1.31447 )
+polygon = PoolVector2Array( -29.903, 4.15, 35.3218, 2.01148, 32.1141, 223.348, -34.18, 224.417 )

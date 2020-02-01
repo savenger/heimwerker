@@ -24,6 +24,7 @@ func _input_event(_viewport, event, _shape_idx):
 			rotate(PI/2.0)
 		if event.button_index == BUTTON_LEFT:
 			get_parent().globals.selected = self
+			get_parent().globals.target = null
 
 func grid_to_pixel(column, row):
 	var x = globals.x_start + globals.offset * column + globals.offset / 2
@@ -38,3 +39,4 @@ func _physics_process(delta):
 			global_position += velocity * delta
 		else:
 			global_position = target
+			print(global_position)
