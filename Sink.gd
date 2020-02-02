@@ -54,6 +54,7 @@ func init_level(extra):
 				pos = sink_defs.grid_to_pixel(rng.randi_range(0, sink_defs.width - 1), rng.randi_range(0, sink_defs.height - 1))
 			node.set_position(pos)
 			node.sink_defs = sink_defs
+			print(node.rotation_degrees)
 			add_child(node, true)
 			sink_defs.pipes.append(node)
 			j += 1

@@ -17,7 +17,7 @@ func _input_event(_viewport, event, _shape_idx):
 			return
 		print("PipeArea:_input_event")
 		if event.button_index == BUTTON_RIGHT:
-			rotate(PI/2.0)
+			rotation_degrees += 90
 			if sink_defs.selected:
 				sink_defs.selected.modulate = Color(1,1,1)
 			sink_defs.selected = self
