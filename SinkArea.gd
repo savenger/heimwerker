@@ -55,6 +55,14 @@ func _input_event(_viewport, event, _shape_idx):
 			if grid_pos != null:
 				sink_defs.target = grid_pos
 			check_success()
+	if event is InputEventScreenTouch:
+		if finished:
+			return
+		var pos = event.position
+		var grid_pos = pixel_to_grid(pos.x, pos.y)
+		if grid_pos != null:
+			sink_defs.target = grid_pos
+		check_success()
 			
 func pixel_to_grid(x, y):
 	var column = (x - sink_defs.x_start) / sink_defs.offset

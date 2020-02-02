@@ -23,6 +23,12 @@ func _input_event(_viewport, event, _shape_idx):
 		if event.button_index == BUTTON_LEFT:
 			sink_defs.selected = self
 			sink_defs.target = null
+	if event is InputEventScreenTouch:
+		if finished:
+			return
+		rotate(PI/2.0)
+		sink_defs.selected = self
+		sink_defs.target = null
 
 func grid_to_pixel(column, row):
 	var x = sink_defs.x_start + sink_defs.offset * column + sink_defs.offset / 2

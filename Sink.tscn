@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/E5D82AD5-FBC9-461B-8D52-4F11DAC6EC90.png" type="Texture" id=1]
 [ext_resource path="res://SinkArea.gd" type="Script" id=2]
 [ext_resource path="res://Sink.gd" type="Script" id=3]
 [ext_resource path="res://assets/background_rohre_klickarea.png" type="Texture" id=4]
+[ext_resource path="res://ExitArea.gd" type="Script" id=5]
 
 [sub_resource type="Animation" id=3]
 resource_name = "Success_Animation"
@@ -70,8 +71,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ExitArea" type="Area2D" parent="BG"]
+script = ExtResource( 5 )
+
+[node name="ExitCollisionPolygon" type="CollisionPolygon2D" parent="BG/ExitArea"]
+polygon = PoolVector2Array( 85.4526, 318.633, 124.519, 289.117, 145.354, 248.314, 147.34, 215.399, 137.741, 183.277, 88.083, 168.379, 52.3677, 186.4, 33.4593, 215.555, 23.5276, 255.281, 26.2684, 286.447, 35.9684, 309.084, 59.6174, 321.971 )
+
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 2029.79, 617.38 )
 rotation = 0.349066
 scale = Vector2( 1, 1 )
+z_index = 10
 texture = ExtResource( 1 )
