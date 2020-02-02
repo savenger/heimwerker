@@ -66,6 +66,9 @@ func _ready():
 	$SinkArea/CollisionShape2D.position = Vector2(screensize.x / 2, screensize.y / 2)
 	$SinkArea/CollisionShape2D.scale = Vector2(screensize.x, screensize.y)
 	init_level(false)
+	init_level(false)
+	init_level(false)
+	init_level(false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

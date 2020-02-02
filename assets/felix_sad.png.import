@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/C3713B75-E918-48BF-910C-FFC6B73B4D11.png-6cfc3916d4e5365ec57ce9237a57e457.stex"
+path="res://.import/felix_sad.png-7f064dc016dd0f219be68d3f458e0f8e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/C3713B75-E918-48BF-910C-FFC6B73B4D11.png"
-dest_files=[ "res://.import/C3713B75-E918-48BF-910C-FFC6B73B4D11.png-6cfc3916d4e5365ec57ce9237a57e457.stex" ]
+source_file="res://assets/felix_sad.png"
+dest_files=[ "res://.import/felix_sad.png-7f064dc016dd0f219be68d3f458e0f8e.stex" ]
 
 [params]
 

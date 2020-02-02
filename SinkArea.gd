@@ -30,18 +30,21 @@ func check_success():
 						if not fmod(int(n.rotation_degrees), 360) == trans[i][2]:
 							print(child.name, " not in ", trans[i][2], " insted: ", fmod(int(n.rotation_degrees), 360))
 							return false
-						else:
-							print("rotation fine")
+						print("posx: ", n.global_position.x)
+						print("posy: ", n.global_position.y)
 						if n.global_position.x != trans[i][0] or n.global_position.y != trans[i][1]:
 							print(sink_defs.selected)
 							var target = sink_defs.target
 							var grd = pixel_to_grid(trans[i][0], trans[i][1])
 							if target:
 								if not (n == sink_defs.selected and (target.x == grd.x and target.y == grd.y)):
-									# print(child.name, " X: ", n.global_position.x, " and should be ", trans[i][0])
-									# print(child.name, " Y: ", n.global_position.y, " and should be ", trans[i][1])
+									print(child.name, " X: ", n.global_position.x, " and should be ", trans[i][0])
+									print(child.name, " Y: ", n.global_position.y, " and should be ", trans[i][1])
 									return false
+							else:
+								return false
 	# trigger success if every pipe is in correct order
+	print("success?")
 	if success and not finished:
 		for child in get_parent().get_children():
 			if child.name.substr(0,4) == "Pipe":
