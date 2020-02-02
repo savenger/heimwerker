@@ -2,8 +2,8 @@
 
 [ext_resource path="res://CogSpin.tscn" type="PackedScene" id=1]
 [ext_resource path="res://CogNoSpin.tscn" type="PackedScene" id=2]
-[ext_resource path="res://CogAreaClick.gd" type="Script" id=3]
-[ext_resource path="res://CogClick.gd" type="Script" id=5]
+[ext_resource path="res://Felix_Message.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ExitArea.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 755.012, 508.972 )
@@ -14,7 +14,6 @@ radius = 105.241
 [node name="Node2D" type="Node2D"]
 
 [node name="Area2D" type="Area2D" parent="."]
-script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 1092.69, 599.086 )
@@ -28,7 +27,6 @@ position = Vector2( 1417.06, 390.783 )
 
 [node name="Cog1Area2D" type="Area2D" parent="Area2D"]
 position = Vector2( 124.824, 93.1787 )
-script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -44,7 +42,6 @@ position = Vector2( 1121.19, 425.602 )
 
 [node name="Cog2Area2D" type="Area2D" parent="Area2D"]
 position = Vector2( -281.294, 307.665 )
-script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -57,3 +54,12 @@ shape = SubResource( 2 )
 
 [node name="NonSpinningCog" parent="Area2D/Cog2Area2D/KinematicBody2D" instance=ExtResource( 2 )]
 position = Vector2( 781.875, 715.686 )
+
+[node name="Felix_Message" parent="." instance=ExtResource( 3 )]
+message_type = 2
+
+[node name="ExitArea" type="Area2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="ExitCollisionPolygon2D" type="CollisionPolygon2D" parent="ExitArea"]
+polygon = PoolVector2Array( 1747.31, 125.905, 1824.34, 128.656, 1824.34, 205.688, 1752.81, 202.937 )

@@ -1,10 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://StartClick.gd" type="Script" id=1]
-[ext_resource path="res://assets/werkstatt-lineart.png" type="Texture" id=2]
+[ext_resource path="res://Felix_Message.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Globals.gd" type="Script" id=3]
 [ext_resource path="res://RobotoMedium.tres" type="DynamicFont" id=4]
 [ext_resource path="res://assets/cog1000.png" type="Texture" id=5]
+
+[sub_resource type="StreamTexture" id=4]
+flags = 4
+load_path = "res://.import/bg.png-23a59c2e9cba2223a50fa3fe41b70b25.stex"
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 219.835, 313.962 )
@@ -23,13 +27,14 @@ script = ExtResource( 3 )
 margin_right = 1920.0
 margin_bottom = 1080.0
 mouse_filter = 2
-texture = ExtResource( 2 )
+texture = SubResource( 4 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
 margin_left = 441.0
 margin_top = 71.0
 margin_right = 1460.0
@@ -77,6 +82,9 @@ visible = false
 position = Vector2( 199.942, 811.129 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 5 )
+
+[node name="Felix_Message" parent="." instance=ExtResource( 2 )]
+z_index = 1
 [connection signal="gui_input" from="BG" to="BG" method="_on_BG_gui_input"]
 [connection signal="mouse_entered" from="BG" to="BG" method="_on_BG_mouse_entered"]
 [connection signal="mouse_exited" from="Machine" to="Machine" method="_on_mouse_exited"]

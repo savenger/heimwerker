@@ -1,6 +1,6 @@
 extends Node2D
 enum FELIX_MESSAGE_TYPE {WELCOME, SINK, COGS}
-export (FELIX_MESSAGE_TYPE) var message_type = null
+export (FELIX_MESSAGE_TYPE) var message_type = FELIX_MESSAGE_TYPE.WELCOME
 
 func _ready():
 	var node = null

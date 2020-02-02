@@ -1,11 +1,15 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/messageboard.png" type="Texture" id=1]
 [ext_resource path="res://assets/felix.png" type="Texture" id=2]
-[ext_resource path="res://assets/rohrlinesfarbespeed.png" type="Texture" id=3]
+[ext_resource path="res://assets/message_sink.png" type="Texture" id=3]
 [ext_resource path="res://Felix_Message.gd" type="Script" id=4]
-[ext_resource path="res://assets/cog1000.png" type="Texture" id=5]
 [ext_resource path="res://MessageBoard.gd" type="Script" id=6]
+[ext_resource path="res://assets/message_welcome.png" type="Texture" id=7]
+
+[sub_resource type="StreamTexture" id=5]
+flags = 4
+load_path = "res://.import/message_cogs.png-7c8c65dd3c6a037adfa63d45168cb734.stex"
 
 [sub_resource type="Animation" id=1]
 resource_name = "IncomingMessage"
@@ -31,7 +35,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 496.88, -470 ), Vector2( 496.88, 530.412 ) ]
+"values": [ Vector2( 940, -470 ), Vector2( 940, 530.412 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Messages/CogsMessage:position")
@@ -43,7 +47,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 484.687, -470 ), Vector2( 484.687, 530.412 ) ]
+"values": [ Vector2( 940, -470 ), Vector2( 940, 530.412 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Messages/WelcomeMessage:position")
@@ -55,7 +59,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 496.88, -470 ), Vector2( 496.88, 530 ) ]
+"values": [ Vector2( 940, -470 ), Vector2( 940, 530 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("../FelixSprite:position")
@@ -92,22 +96,21 @@ __meta__ = {
 
 [node name="SinkMessage" type="Sprite" parent="Message/Messages"]
 visible = false
-position = Vector2( 496.88, -470 )
-scale = Vector2( 0.4, 0.4 )
+position = Vector2( 940, -470 )
 z_index = 1
 texture = ExtResource( 3 )
 
 [node name="CogsMessage" type="Sprite" parent="Message/Messages"]
 visible = false
-position = Vector2( 484.687, -470 )
+position = Vector2( 940, -470 )
 z_index = 1
-texture = ExtResource( 5 )
+texture = SubResource( 5 )
 
 [node name="WelcomeMessage" type="Sprite" parent="Message/Messages"]
 visible = false
-position = Vector2( 496.88, -470 )
+position = Vector2( 940, -470 )
 z_index = 1
-texture = ExtResource( 2 )
+texture = ExtResource( 7 )
 
 [node name="MessageAnimation" type="AnimationPlayer" parent="Message"]
 anims/IncomingMessage = SubResource( 1 )
