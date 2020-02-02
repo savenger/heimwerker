@@ -23,10 +23,13 @@ func check_success():
 				for i in count:
 					if name + str(i) == child.name:
 						print(name)
+						if name == "Pipe_U_Short":
+							pass
 						var n = child.get_node("Area2D")
+						print("rot: ", n.rotation_degrees)
 						if not fmod(int(n.rotation_degrees), 360) == trans[i][2]:
 							print(child.name, " not in ", trans[i][2], " insted: ", fmod(int(n.rotation_degrees), 360))
-							success = false
+							return false
 						else:
 							print("rotation fine")
 						if n.global_position.x != trans[i][0] or n.global_position.y != trans[i][1]:
@@ -35,9 +38,9 @@ func check_success():
 							var grd = pixel_to_grid(trans[i][0], trans[i][1])
 							if target:
 								if not (n == sink_defs.selected and (target.x == grd.x and target.y == grd.y)):
-									print(child.name, " X: ", n.global_position.x, " and should be ", trans[i][0])
-									print(child.name, " Y: ", n.global_position.y, " and should be ", trans[i][1])
-									success = false
+									# print(child.name, " X: ", n.global_position.x, " and should be ", trans[i][0])
+									# print(child.name, " Y: ", n.global_position.y, " and should be ", trans[i][1])
+									return false
 	# trigger success if every pipe is in correct order
 	if success and not finished:
 		for child in get_parent().get_children():
@@ -48,6 +51,7 @@ func check_success():
 		var anim = get_parent().get_node("AnimationPlayer")
 		if(not anim.is_playing()):
 			anim.play("Success_Animation")
+		return true
 
 # set target if no pipe is clicked
 func _input_event(_viewport, event, _shape_idx):

@@ -18,10 +18,16 @@ func _input_event(_viewport, event, _shape_idx):
 		print("PipeArea:_input_event")
 		if event.button_index == BUTTON_RIGHT:
 			rotate(PI/2.0)
+			if sink_defs.selected:
+				sink_defs.selected.modulate = Color(1,1,1)
 			sink_defs.selected = self
 			sink_defs.target = null
+			self.modulate = Color(0.4,0.4,0)
 		if event.button_index == BUTTON_LEFT:
+			if sink_defs.selected:
+				sink_defs.selected.modulate = Color(1,1,1)
 			sink_defs.selected = self
+			self.modulate = Color(0.4,0.4,0)
 			sink_defs.target = null
 	if event is InputEventScreenTouch:
 		if finished:

@@ -34,15 +34,12 @@ scale = Vector2( 1, 1 )
 [node name="Area2D" type="Area2D" parent="." index="1"]
 script = SubResource( 1 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" index="0"]
-position = Vector2( 1.82837, -104.228 )
-scale = Vector2( 1.33475, 1.3623 )
-polygon = PoolVector2Array( 42.9854, -34.999, 106.963, -33.8143, 109.333, 80.5165, 109.925, 91.7718, 103.409, 105.397, 94.5231, 110.728, -84.3779, 111.913, -99.7799, 105.989, -107.481, 91.1794, -106.889, -109.64, -43.5032, -108.455, -43.5032, 59.1905, 42.9854, 58.0057 )
-
-[node name="TileMap" type="TileMap" parent="Area2D" index="1"]
-rotation = -3.14159
+[node name="TileMap" type="TileMap" parent="Area2D" index="0"]
 scale = Vector2( 0.5, 0.5 )
 tile_set = SubResource( 3 )
 cell_size = Vector2( 100, 100 )
 format = 1
 tile_data = PoolIntArray( -3, 0, 65546, -2, 0, 65547, -1, 0, 65547, -65536, 0, 65547, -65535, 0, 65550, -65534, 0, 65551, 65533, 0, 131074, 65534, 0, 131083, 65535, 0, 131084, 0, 0, 131084, 1, 0, 131086, 2, 0, 327693, 131069, 0, 131074, 131070, 0, 327693, 65537, 0, 327694, 65538, 0, 327693, 196605, 0, 131074, 196606, 0, 327693, 131073, 0, 327694, 131074, 0, 327693, 196609, 0, 327694, 196610, 0, 327693, 262145, 0, 327694, 262146, 0, 327693 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" index="1"]
+polygon = PoolVector2Array( -144.306, -43.5582, 137.384, -42.1808, 146.338, 249.152, 58.8691, 249.84, 56.1142, 24.6259, -56.1487, 26.6921, -55.4599, 151.352, -144.306, 149.286 )

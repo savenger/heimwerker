@@ -30,6 +30,8 @@ func init_level(extra):
 	$AnimationPlayer.seek(0, true)
 	$SinkArea.reset()
 	sink_defs.pipes = []
+	sink_defs.selected = null
+	sink_defs.target = null
 	# load some pipes
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
@@ -45,13 +47,12 @@ func init_level(extra):
 		var p = load("res://" + name + ".tscn")
 		for i in count:
 			var node = p.instance()
+			var pos = Vector2(trans[i][0], trans[i][1])
 			node.name = name + str(i)
 			print(node.name)
 			if extra:
-				var pos = sink_defs.grid_to_pixel(rng.randi_range(0, sink_defs.width - 1), rng.randi_range(0, sink_defs.height - 1))
-				node.set_position(pos)
-			else:
-				node.set_position(Vector2(trans[i][0], trans[i][1]))
+				pos = sink_defs.grid_to_pixel(rng.randi_range(0, sink_defs.width - 1), rng.randi_range(0, sink_defs.height - 1))
+			node.set_position(pos)
 			node.sink_defs = sink_defs
 			add_child(node, true)
 			sink_defs.pipes.append(node)
