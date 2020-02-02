@@ -1,8 +1,19 @@
-[gd_scene format=2]
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/credits.png" type="Texture" id=1]
+[ext_resource path="res://assets/credits2.png" type="Texture" id=2]
+[ext_resource path="res://assets/messageboard.png" type="Texture" id=3]
+[ext_resource path="res://CreditTimer.gd" type="Script" id=4]
+[ext_resource path="res://assets/success.png" type="Texture" id=5]
 
 [node name="Exit" type="Node2D"]
 
+[node name="CreditBoard" type="Sprite" parent="."]
+position = Vector2( 958.815, 549.842 )
+texture = ExtResource( 3 )
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
 margin_left = 10.8415
 margin_top = 8.78876
 margin_right = 750.842
@@ -40,3 +51,23 @@ scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Credits1" type="Sprite" parent="."]
+position = Vector2( 954.271, 552.114 )
+texture = ExtResource( 1 )
+
+[node name="Credits2" type="Sprite" parent="."]
+visible = false
+position = Vector2( 961.087, 549.842 )
+texture = ExtResource( 2 )
+
+[node name="CreditTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 954.271, 538.481 )
+texture = ExtResource( 5 )
+[connection signal="timeout" from="CreditTimer" to="CreditTimer" method="_on_CreditTimer_timeout"]
