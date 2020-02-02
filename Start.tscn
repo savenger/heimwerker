@@ -61,18 +61,6 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
 shape = SubResource( 2 )
 
-[node name="SinkContainer" type="Control" parent="."]
-visible = false
-margin_left = 94.883
-margin_top = 556.038
-margin_right = 290.883
-margin_bottom = 940.038
-mouse_filter = 1
-mouse_default_cursor_shape = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Sink" type="Area2D" parent="."]
 position = Vector2( 200.728, 808.802 )
 script = ExtResource( 1 )

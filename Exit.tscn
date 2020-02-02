@@ -3,26 +3,40 @@
 [node name="Exit" type="Node2D"]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 37.4986
-margin_top = 10.8393
-margin_right = 777.499
-margin_bottom = 426.839
+margin_left = 10.8415
+margin_top = 8.78876
+margin_right = 750.842
+margin_bottom = 458.789
 rect_scale = Vector2( 2, 2 )
-text = "Work by:
+text = "Credits
 
-Almut (Art)
-Paula (Art)
-Ingken (Code)
-Sascha (Code)
 
-Sounds used:
+Idea: Teamwork \\0/
 
+Logo: Paula
+
+Background: Almut
+
+Level design: Almut
+
+Level: Paula
+
+Pipe framework: Sascha
+
+Character Design: Paula
+
+Dialogues: Almut
+
+Music by Felan (thanks buddy :3)
+
+Music sources
 https://freesound.org/people/Adam_N/sounds/166315/
-
 https://freesound.org/people/LuannWepener/sounds/326114/
 
-Special Thanks to:
-Almuts Friend (Music)"
+
+
+Shout out to the awesome organizers of the Kiel jam site (Germany)!"
+scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
