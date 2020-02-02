@@ -4,19 +4,19 @@
 [ext_resource path="res://Felix_Message.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Globals.gd" type="Script" id=3]
 [ext_resource path="res://RobotoMedium.tres" type="DynamicFont" id=4]
-[ext_resource path="res://assets/cog1000.png" type="Texture" id=5]
+[ext_resource path="res://assets/wrench.png" type="Texture" id=5]
 
-[sub_resource type="StreamTexture" id=4]
+[sub_resource type="StreamTexture" id=1]
 flags = 4
 load_path = "res://.import/bg.png-23a59c2e9cba2223a50fa3fe41b70b25.stex"
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 219.835, 313.962 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 42.3064, 294.888 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 96, 129.335 )
 
 [node name="Start" type="Node2D"]
@@ -27,7 +27,7 @@ script = ExtResource( 3 )
 margin_right = 1920.0
 margin_bottom = 1080.0
 mouse_filter = 2
-texture = SubResource( 4 )
+texture = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -54,7 +54,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Machine"]
 position = Vector2( -4.54395, 20.4486 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Exit" type="Area2D" parent="."]
 position = Vector2( 1785, 631 )
@@ -64,7 +64,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Sink" type="Area2D" parent="."]
 position = Vector2( 200.728, 808.802 )
@@ -75,13 +75,15 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sink"]
 position = Vector2( -5, 2 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="ActionImage" type="Sprite" parent="."]
 visible = false
 position = Vector2( 199.942, 811.129 )
-scale = Vector2( 0.1, 0.1 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 150, 200, 250, 300 )
 
 [node name="Felix_Message" parent="." instance=ExtResource( 2 )]
 z_index = 1

@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/messageboard.png" type="Texture" id=1]
 [ext_resource path="res://assets/felix.png" type="Texture" id=2]
 [ext_resource path="res://assets/message_sink.png" type="Texture" id=3]
 [ext_resource path="res://Felix_Message.gd" type="Script" id=4]
+[ext_resource path="res://assets/message_welcome2.png" type="Texture" id=5]
 [ext_resource path="res://MessageBoard.gd" type="Script" id=6]
 [ext_resource path="res://assets/message_welcome.png" type="Texture" id=7]
+[ext_resource path="res://assets/message_sink2.png" type="Texture" id=8]
 
 [sub_resource type="StreamTexture" id=5]
 flags = 4
@@ -73,6 +75,30 @@ tracks/4/keys = {
 "update": 0,
 "values": [ Vector2( 2000, 542.605 ), Vector2( 940, 542.605 ) ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("Messages/SinkMessage2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 940, -470 ), Vector2( 940, 530 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Messages/WelcomeMessage2:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 940, -470 ), Vector2( 940, 540 ) ]
+}
 
 [node name="Felix_Message" type="Node2D"]
 script = ExtResource( 4 )
@@ -100,6 +126,12 @@ position = Vector2( 940, -470 )
 z_index = 1
 texture = ExtResource( 3 )
 
+[node name="SinkMessage2" type="Sprite" parent="Message/Messages"]
+visible = false
+position = Vector2( 940, -470 )
+z_index = 1
+texture = ExtResource( 8 )
+
 [node name="CogsMessage" type="Sprite" parent="Message/Messages"]
 visible = false
 position = Vector2( 940, -470 )
@@ -111,6 +143,12 @@ visible = false
 position = Vector2( 940, -470 )
 z_index = 1
 texture = ExtResource( 7 )
+
+[node name="WelcomeMessage2" type="Sprite" parent="Message/Messages"]
+visible = false
+position = Vector2( 940, -470 )
+z_index = 1
+texture = ExtResource( 5 )
 
 [node name="MessageAnimation" type="AnimationPlayer" parent="Message"]
 anims/IncomingMessage = SubResource( 1 )
