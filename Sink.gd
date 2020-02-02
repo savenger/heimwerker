@@ -14,8 +14,8 @@ class SinkDefs:
 		["Pipe_I", 1, [[850, 350, 90]]],
 		["Pipe_L", 1, [[1050, 850, 180]]],
 		["Pipe_End", 2, [[1350, 550, 0], [1150, 350, 90]]],
-		["Pipe_U_Long", 1, [[650, 650, 0]]],
-		["Pipe_U_Short", 1, [[950, 450, 180]]]
+		["Pipe_U_Long", 1, [[650, 650, 180]]],
+		["Pipe_U_Short", 1, [[950, 450, 0]]]
 	]
 	
 	func grid_to_pixel(column, row):
