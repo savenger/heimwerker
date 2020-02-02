@@ -3,11 +3,26 @@
 [node name="Exit" type="Node2D"]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 216.0
-margin_top = 32.0
-margin_right = 584.0
-margin_bottom = 72.0
-text = "Abspann"
+margin_left = 37.4986
+margin_top = 10.8393
+margin_right = 777.499
+margin_bottom = 426.839
+rect_scale = Vector2( 2, 2 )
+text = "Work by:
+
+Almut (Art)
+Paula (Art)
+Ingken (Code)
+Sascha (Code)
+
+Sounds used:
+
+https://freesound.org/people/Adam_N/sounds/166315/
+
+https://freesound.org/people/LuannWepener/sounds/326114/
+
+Special Thanks to:
+Almuts Friend (Music)"
 __meta__ = {
 "_edit_use_anchors_": false
 }

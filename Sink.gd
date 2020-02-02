@@ -3,8 +3,8 @@ extends Node2D
 class SinkDefs:
 	var selected = null
 	var target = null
-	var width = 14
-	var height = 14
+	var width = 9
+	var height = 8
 	var x_start = 500
 	var y_start = 200
 	var offset = 100
@@ -17,19 +17,25 @@ class SinkDefs:
 		["Pipe_U_Long", 1, [[650, 650, 0]]],
 		["Pipe_U_Short", 1, [[950, 450, 180]]]
 	]
+	
+	func grid_to_pixel(column, row):
+		var x = x_start + offset * column + offset / 2
+		var y = y_start + offset * row + offset / 2
+		return Vector2(x, y)
 
 var sink_defs = SinkDefs.new()
 var holes = []
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	# set area2d size to capture input
-	var screensize = get_viewport().get_visible_rect().size
-	$SinkArea/CollisionShape2D.position = Vector2(screensize.x / 2, screensize.y / 2)
-	$SinkArea/CollisionShape2D.scale = Vector2(screensize.x, screensize.y)
-	
+func init_level(extra):
+	$AnimationPlayer.seek(0, true)
+	$SinkArea.reset()
 	# load some pipes
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
 	var j = 0
+	for child in get_children():
+		if child.name.substr(0, 4) == "Pipe":
+			child.free()
 	for pipe in sink_defs.pipe_defs:
 		var name = pipe[0]
 		var count = pipe[1]
@@ -39,12 +45,23 @@ func _ready():
 			var node = p.instance()
 			node.name = name + str(i)
 			print(node.name)
-			node.set_position(Vector2(trans[i][0], trans[i][1]))
+			if extra:
+				var pos = sink_defs.grid_to_pixel(rng.randi_range(0, sink_defs.width - 1), rng.randi_range(0, sink_defs.height - 1))
+				node.set_position(pos)
+			else:
+				node.set_position(Vector2(trans[i][0], trans[i][1]))
 			node.sink_defs = sink_defs
 			add_child(node, true)
 			sink_defs.pipes.append(node)
 			j += 1
 
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	# set area2d size to capture input
+	var screensize = get_viewport().get_visible_rect().size
+	$SinkArea/CollisionShape2D.position = Vector2(screensize.x / 2, screensize.y / 2)
+	$SinkArea/CollisionShape2D.scale = Vector2(screensize.x, screensize.y)
+	init_level(false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

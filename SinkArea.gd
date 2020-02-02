@@ -6,29 +6,38 @@ var finished = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	sink_defs = get_parent().sink_defs
+	reset()
 	
+func reset():
+	finished = false
+
 func check_success():
 	var success = true
 	for child in get_parent().get_children():
 		if child.name.substr(0,4) == "Pipe":
+			print(child.name)
 			for p in sink_defs.pipe_defs:
 				var name = p[0]
 				var count = p[1]
 				var trans = p[2]
 				for i in count:
 					if name + str(i) == child.name:
+						print(name)
 						var n = child.get_node("Area2D")
 						if not fmod(int(n.rotation_degrees), 360) == trans[i][2]:
 							print(child.name, " not in ", trans[i][2], " insted: ", fmod(int(n.rotation_degrees), 360))
 							success = false
+						else:
+							print("rotation fine")
 						if n.global_position.x != trans[i][0] or n.global_position.y != trans[i][1]:
 							print(sink_defs.selected)
 							var target = sink_defs.target
 							var grd = pixel_to_grid(trans[i][0], trans[i][1])
-							if not (n == sink_defs.selected and (target.x == grd.x and target.y == grd.y)):
-								print(child.name, " X: ", n.global_position.x, " and should be ", trans[i][0])
-								print(child.name, " Y: ", n.global_position.y, " and should be ", trans[i][1])
-								success = false
+							if target:
+								if not (n == sink_defs.selected and (target.x == grd.x and target.y == grd.y)):
+									print(child.name, " X: ", n.global_position.x, " and should be ", trans[i][0])
+									print(child.name, " Y: ", n.global_position.y, " and should be ", trans[i][1])
+									success = false
 	# trigger success if every pipe is in correct order
 	if success and not finished:
 		for child in get_parent().get_children():

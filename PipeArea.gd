@@ -30,16 +30,11 @@ func _input_event(_viewport, event, _shape_idx):
 		sink_defs.selected = self
 		sink_defs.target = null
 
-func grid_to_pixel(column, row):
-	var x = sink_defs.x_start + sink_defs.offset * column + sink_defs.offset / 2
-	var y = sink_defs.y_start + sink_defs.offset * row + sink_defs.offset / 2
-	return Vector2(x, y)
-
 func _physics_process(delta):
 	if not sink_defs:
 		return
 	if sink_defs.target != null and sink_defs.selected == self:
-		var target = grid_to_pixel(sink_defs.target.x, sink_defs.target.y)
+		var target = sink_defs.grid_to_pixel(sink_defs.target.x, sink_defs.target.y)
 		velocity = global_position.direction_to(target) * speed
 		if global_position.distance_to(target) > 10:
 			global_position += velocity * delta
