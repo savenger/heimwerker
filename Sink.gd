@@ -29,12 +29,14 @@ var holes = []
 func init_level(extra):
 	$AnimationPlayer.seek(0, true)
 	$SinkArea.reset()
+	sink_defs.pipes = []
 	# load some pipes
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	var j = 0
 	for child in get_children():
 		if child.name.substr(0, 4) == "Pipe":
+			print("freeing ", child.name)
 			child.free()
 	for pipe in sink_defs.pipe_defs:
 		var name = pipe[0]
